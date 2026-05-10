@@ -1,0 +1,135 @@
+rank,lemma,original_lemma,old_translation,new_translation,translation_changed,review_reason,participle_relation,participle_form,participle_family,participle_gender,participle_number,participle_confidence,participle_reason
+162,sido,ser,been (identity/essence/origin/time),been (identity/essence/origin/time; past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+429,tenido,tener,had (possession/age/state/obligation),had (possession/age/state/obligation; past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+494,ido,ir,went; gone,went; gone (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+627,venido,venir,come,come (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+1079,podido,poder,been able to,been able to (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+1654,recibido,recibir,received,received (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+1920,habido,haber,had (auxiliary/existence),had (auxiliary/existence; past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+2846,aprendido,aprender,learned,learned (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+2892,sucedido,suceder,happened,happened (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+3326,permitido,permitir,allowed,allowed (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+4816,servido,servir,served,served (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+5546,obtenido,obtener,obtained,obtained (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+5974,comprendido,comprender,understood,understood (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+7370,existido,existir,existed,existed (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+7542,sobrevivido,sobrevivir,survived,survived (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+7993,concedido,conceder,granted,granted (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+8352,surgido,surgir,arised,arised (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+8395,conducido,conducir,drived,drived (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+8514,advertido,advertir,warned,warned (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+9024,respondido,responder,answered,answered (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+9273,dividido,dividir,divided,divided (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+9596,discutido,discutir,discussed,discussed (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+9915,constituido,constituir,constituted,constituted (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+10052,referido,referir,reported,reported (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+10223,hundido,hundir,sinked,sinked (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+10282,concluido,concluir,concluded,concluded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+10926,transcurrido,transcurrir,passed by,passed by (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+11185,emitido,emitir,issued,issued (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+11200,admitido,admitir,accepted,accepted (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+11604,interrumpido,interrumpir,interrupted,interrupted (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+11662,contribuido,contribuir,contributed,contributed (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+11961,introducido,introducir,inserted,inserted (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+12008,transferido,transferir,transfered,transfered (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+12133,asumido,asumir,assumed,assumed (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+12159,permanecido,permanecer,stayed,stayed (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+12224,sustituido,sustituir,replaced,replaced (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+12822,concebido,concebir,conceived,conceived (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+13154,atendido,atender,paid attention to,paid attention to (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+13399,sugerido,sugerir,suggested,suggested (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+13691,intervenido,intervenir,intervened,intervened (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+14005,retenido,retener,retained,retained (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+14179,ascendido,ascender,ascended,ascended (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+14324,invadido,invadir,invaded,invaded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+14781,presidido,presidir,presided,presided (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+14805,conmovido,conmover,affected,affected (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+14823,acudido,acudir,gone,gone (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+15062,bendecido,bendecir,blessed,blessed (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+15346,temido,temer,feared,feared (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+15392,influido,influir,influenced,influenced (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+15424,accedido,acceder,acceded,acceded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+15506,cedido,ceder,ceded,ceded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+15544,insistido,insistir,insisted,insisted (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+15586,transmitido,transmitir,transmited,transmited (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+16576,promovido,promover,promoted,promoted (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+16750,difundido,difundir,spreaded,spreaded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+17054,excluido,excluir,excluded,excluded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+17635,exigido,exigir,demanded,demanded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+17756,remitido,remitir,remited,remited (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+17947,percibido,percibir,perceived,perceived (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+18125,ejercido,ejercer,exercised,exercised (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+18276,descendido,descender,descended,descended (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+18400,sumido,sumir,submerged,submerged (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+18704,medido,medir,measured,measured (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+18721,absorbido,absorber,absorbed,absorbed (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+18907,teñido,teñir,colored,colored (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+19238,resistido,resistir,tolerated,tolerated (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+19296,repartido,repartir,shared,shared (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+19372,distribuido,distribuir,distributed,distributed (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+19449,atribuido,atribuir,assigned,assigned (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+19811,correspondido,corresponder,corresponded to,corresponded to (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+20554,emprendido,emprender,undertaked,undertaked (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+21340,enriquecido,enriquecer,enriched,enriched (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+21354,padecido,padecer,suffered,suffered (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+21828,pertenecido,pertenecer,belonged,belonged (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+21839,convenido,convenir,agreed,agreed (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+22083,desvanecido,desvanecer,vanished,vanished (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+22177,recurrido,recurrir,resorted to,resorted to (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+22699,extinguido,extinguir,extinguished,extinguished (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+22706,olido,oler,smelled,smelled (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+22899,malherido,malherir,injured fatally,injured fatally (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+22922,removido,remover,stired,stired (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+22964,precedido,preceder,preceded,preceded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+23163,coincidido,coincidir,coincided,coincided (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+23326,enfurecido,enfurecer,infuriated,infuriated (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+23882,recluido,recluir,imprisoned,imprisoned (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+24008,seducido,seducir,seduced,seduced (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+24298,reconstruido,reconstruir,rebuilded,rebuilded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+24317,llovido,llover,rained,rained (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+25032,combatido,combatir,combated or fight,combated or fight (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+25822,dimitido,dimitir,resigned,resigned (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+25832,idos,ir,go away,go away (past participle masculine plural),yes,translation_changed,past_participle_detected,idos,standard_idos,masculine,plural,high,regular_ido_participle_match
+26268,ingerido,ingerir,ingested,ingested (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+26321,acontecido,acontecer,come to pass,come to pass (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+26423,reelegido,reelegir,reelected,reelected (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+26818,prevenido,prevenir,prevented,prevented (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+27473,renacido,renacer,been reborn,been reborn (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+27563,parido,parir,given birth,given birth (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+27779,regido,regir,ruled,ruled (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+28005,persuadido,persuadir,persuaded,persuaded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+28031,excedido,exceder,exceeded,exceeded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+28050,desprendido,desprender,detached,detached (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+28053,florecido,florecer,flowered,flowered (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+28169,suprimido,suprimir,suppressed,suppressed (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+28491,adherido,adherir,adhered,adhered (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+28552,trascendido,trascender,transcended,transcended (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+28843,revertido,revertir,reverted,reverted (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+28897,exhibido,exhibir,exhibited,exhibited (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+28963,reproducido,reproducir,reproduced,reproduced (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+29154,fortalecido,fortalecer,fortified,fortified (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+29227,maldecido,maldecir,damned,damned (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+30117,incurrido,incurrir,incured,incured (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+30209,aplaudido,aplaudir,applauded,applauded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+30246,endurecido,endurecer,hardened,hardened (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+30272,debatido,debatir,debated,debated (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+30378,deducido,deducir,deduced,deduced (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+30590,erigido,erigir,builded,builded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+30606,restablecido,restablecer,restored,restored (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+30683,investido,investir,invested,invested (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+30819,oscurecido,oscurecer,darkened,darkened (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+30997,diluido,diluir,diluted,diluted (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+31324,procedido,proceder,proceeded,proceeded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+31417,obedecido,obedecer,obeyed,obeyed (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+32270,sucumbido,sucumbir,succumbed,succumbed (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+32401,desobedecido,desobedecer,disobeyed,disobeyed (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+32618,expandido,expandir,expanded,expanded (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+32619,expedido,expedir,issued,issued (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+32673,interferido,interferir,interfered,interfered (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+33108,demolido,demoler,demolished,demolished (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+33124,retrocedido,retroceder,backed up,backed up (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+33225,omitido,omitir,omited,omited (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+33367,solido,soler,I consolidate,I consolidate (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+33653,revestido,revestir,decorated,decorated (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+34515,irrumpido,irrumpir,bursted into,bursted into (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match
+34534,amanecido,amanecer,dawned,dawned (past participle masculine singular),yes,translation_changed,past_participle_detected,ido,standard_ido,masculine,singular,high,regular_ido_participle_match

@@ -1,0 +1,47 @@
+rank,lemma,original_lemma,new_translation,vosotros_tense,vosotros_mood,reason
+1122,parís,parir,you give birth (vosotros present indicative),present,indicative,ir_present
+1444,habéis,haber,you have (vosotros present indicative; auxiliary/existence),present,indicative,manual
+1952,sois,ser,you are (vosotros present indicative; identity/essence/origin/time),present,indicative,manual
+2042,tenéis,tener,you have (vosotros present indicative; possession/age/need-state),present,indicative,manual
+2775,sabéis,saber,you know (vosotros present indicative),present,indicative,manual
+3105,queréis,querer,you desire (vosotros present indicative),present,indicative,er_present
+5690,hacéis,hacer,you do (vosotros present indicative),present,indicative,manual
+8108,debéis,deber,you owe (vosotros present indicative),present,indicative,er_present
+8719,decís,decir,you say (vosotros present indicative),present,indicative,manual
+10413,conocéis,conocer,you know (vosotros present indicative),present,indicative,er_present
+11148,necesitáis,necesitar,you need (vosotros present indicative),present,indicative,ar_present
+12226,pensáis,pensar,you think (vosotros present indicative),present,indicative,ar_present
+13544,lleváis,llevar,you take (vosotros present indicative),present,indicative,ar_present
+13848,venís,venir,you come (vosotros present indicative),present,indicative,manual
+14957,podáis,podar,you are able to (vosotros present indicative),present,indicative,ar_present
+16023,habláis,hablar,you talk (vosotros present indicative),present,indicative,ar_present
+16392,entendéis,entender,you understand (vosotros present indicative),present,indicative,er_present
+16484,seguís,seguir,you follow (vosotros present indicative),present,indicative,ir_present
+18154,sentís,sentir,you feel (vosotros present indicative),present,indicative,ir_present
+18781,dejáis,dejar,you leave (vosotros present indicative),present,indicative,ar_present
+19761,parecéis,parecer,you seem (vosotros present indicative),present,indicative,er_present
+20176,llamáis,llamar,you summon (vosotros present indicative),present,indicative,ar_present
+21533,recordáis,recordar,you remember (vosotros present indicative),present,indicative,ar_present
+23293,quedáis,quedar,you are (vosotros present indicative),present,indicative,ar_present
+23666,vivís,vivir,you live (vosotros present indicative),present,indicative,ir_present
+24238,acordáis,acordar,you agree (vosotros present indicative),present,indicative,ar_present
+24528,esperáis,esperar,you hope (vosotros present indicative),present,indicative,ar_present
+26278,asís,asir,you grab (vosotros present indicative),present,indicative,ir_present
+26987,ponéis,poner,you put (vosotros present indicative),present,indicative,er_present
+27255,buscáis,buscar,you seek (vosotros present indicative),present,indicative,ar_present
+27323,salís,salir,you go out (vosotros present indicative),present,indicative,ir_present
+27488,encontráis,encontrar,you meet (vosotros present indicative),present,indicative,ar_present
+28186,miráis,mirar,you look at (vosotros present indicative),present,indicative,ar_present
+28490,acabáis,acabar,you finish (vosotros present indicative),present,indicative,ar_present
+28966,volvéis,volver,you return (vosotros present indicative),present,indicative,er_present
+29457,disculpáis,disculpar,you excuse (vosotros present indicative),present,indicative,ar_present
+29526,creáis,crear,you believe (vosotros present indicative),present,indicative,ar_present
+29983,trabajáis,trabajar,you work (vosotros present indicative),present,indicative,ar_present
+30541,deseáis,desear,you wish (vosotros present indicative),present,indicative,ar_present
+30900,llegáis,llegar,you arrive (vosotros present indicative),present,indicative,ar_present
+31335,traéis,traer,you bring (vosotros present indicative),present,indicative,er_present
+32089,amáis,amar,you love (vosotros present indicative),present,indicative,ar_present
+32836,tomáis,tomar,you take (vosotros present indicative),present,indicative,ar_present
+33311,merecéis,merecer,you deserve (vosotros present indicative),present,indicative,er_present
+33319,permitís,permitir,you allow (vosotros present indicative),present,indicative,ir_present
+34269,pasáis,pasar,you pass (vosotros present indicative),present,indicative,ar_present

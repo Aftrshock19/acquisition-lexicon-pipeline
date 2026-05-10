@@ -1,0 +1,143 @@
+rank,lemma,original_lemma,old_translation,new_translation,translation_changed,review_reason,imperative_relation,imperative_person,imperative_polarity,imperative_confidence,subjunctive_relation,subjunctive_tense,subjunctive_person,subjunctive_confidence,imperative_reason,subjunctive_reason
+146,sea,ser,be,be (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,high,no_safe_match,manual_irregular
+396,haya,haber,have,have (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,high,no_safe_match,manual_irregular
+397,hubiera,haber,had,had (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,singular_ambiguous,high,no_safe_match,manual_irregular
+470,cree,crear,he creates; she creates; it creates,he creates; she creates; it creates,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+506,esté,estar,I am,I am (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,high,no_safe_match,manual_irregular
+770,sean,ser,they are,they are (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,third,high,no_safe_match,manual_irregular
+825,seas,ser,you are,you are (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,second,high,no_safe_match,manual_irregular
+862,haz,hacer,do,do (imperative),yes,translation_changed,imperative_form,tú,affirmative,high,not_subjunctive_form,,,,manual_irregular_tu,no_match
+1077,estés,estar,you are,you are (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,second,high,no_safe_match,manual_irregular
+1170,estuviera,estar,I was,I was (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,singular_ambiguous,high,no_safe_match,manual_irregular
+1474,vayan,ir,they go,they go (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,third,high,unsafe_regular_candidate,manual_irregular
+1501,hubiese,haber,I had,I had (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_se,singular_ambiguous,high,no_safe_match,manual_irregular
+1540,estén,estar,they are,they are (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,third,high,no_safe_match,manual_irregular
+1744,hayan,haber,they have,they have (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,third,high,no_safe_match,manual_irregular
+1750,fuese,ir,I went,I went (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_se,singular_ambiguous,high,unsafe_regular_candidate,manual_irregular
+1854,llame,llamar,he summons; she summons; it summons,he summons; she summons; it summons,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+1900,vayamos,ir,we go,we go (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,first,high,unsafe_regular_candidate,manual_irregular
+1926,dé,dar,he gives; she gives; it gives,he gives; she gives; it gives (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,high,no_safe_match,manual_irregular
+2186,sepas,saber,you know,you know (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,second,high,no_safe_match,manual_irregular
+2192,hubieras,haber,you had,you had (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,second,high,no_safe_match,manual_irregular
+2227,fueran,ir,they went,they went (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,third,high,unsafe_regular_candidate,manual_irregular
+2412,fueras,ir,you went,you went (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,second,high,unsafe_regular_candidate,manual_irregular
+2480,hubieran,haber,they had,they had (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,third,high,no_safe_match,manual_irregular
+2654,den,dar,they give,they give (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,third,high,no_safe_match,manual_irregular
+2835,supiera,saber,I knew,I knew (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,singular_ambiguous,high,no_safe_match,manual_irregular
+2906,estemos,estar,we are,we are (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,first,high,no_safe_match,manual_irregular
+3299,seamos,ser,we are,we are (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,first,high,no_safe_match,manual_irregular
+3330,bases,basar,you base on,you base on,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+3930,diera,dar,I gave,I gave (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,singular_ambiguous,high,no_safe_match,manual_irregular
+4079,estuvieras,estar,you were,you were (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,second,high,no_safe_match,manual_irregular
+4351,hayamos,haber,we have,we have (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,first,high,no_safe_match,manual_irregular
+4374,sepan,saber,they know,they know (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,third,high,no_safe_match,manual_irregular
+4390,viera,ver,I saw,I saw,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,imperfect_ra,singular_ambiguous,medium,no_safe_match,regular_imperfect_ra
+4871,tomes,tomar,you take,you take,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+5243,estuvieran,estar,they were,they were (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,third,high,no_safe_match,manual_irregular
+5272,perfume,perfumar,I scent,I scent,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+5288,paren,parar,they give birth,they give birth,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,third,low,no_safe_match,regular_present
+5701,supieras,saber,you knew,you knew (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,second,high,no_safe_match,manual_irregular
+5915,lea,leer,he reads; she reads; it reads,he reads; she reads; it reads,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+6191,fuéramos,ir,we went,we went (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,first,high,unsafe_regular_candidate,manual_irregular
+6771,demos,dar,we give,we give (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,first,high,no_safe_match,manual_irregular
+7439,creéis,crear,you believe,you believe,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+7560,ordenes,ordenar,you order,you order,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+7656,series,seriar,you serialize,you serialize,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+7829,hubiesen,haber,they had,they had (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_se,third,high,no_safe_match,manual_irregular
+8227,entres,entrar,you enter,you enter,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+8301,labores,laborar,you labor,you labor,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+8346,marines,marinar,you marinate,you marinate,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+8378,reciba,recibir,he receives; she receives; it receives,he receives; she receives; it receives,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+8388,are,arar,he ploughs; she ploughs; it ploughs,he ploughs; she ploughs; it ploughs,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+9069,fuesen,ir,they went,they went (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_se,third,high,unsafe_regular_candidate,manual_irregular
+9793,corra,correr,he runs; she runs; it runs,he runs; she runs; it runs,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+9883,dieran,dar,they gave,they gave (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,third,high,no_safe_match,manual_irregular
+10303,supieran,saber,they knew,they knew (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,third,high,no_safe_match,manual_irregular
+10324,amen,amar,they love,they love,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,third,low,no_safe_match,regular_present
+10406,vieras,ver,you saw,you saw,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,imperfect_ra,second,medium,no_safe_match,regular_imperfect_ra
+10668,ame,amar,he loves; she loves; it loves,he loves; she loves; it loves,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+10712,andes,andar,you walk,you walk,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+10946,vieran,ver,they saw,they saw,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,imperfect_ra,third,medium,no_safe_match,regular_imperfect_ra
+10977,interese,interesar,he interests; she interests; it interests,he interests; she interests; it interests,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+11071,desees,desear,you wish,you wish,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+11132,vivan,vivir,they live,they live,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,third,low,no_safe_match,regular_present
+11368,presenten,presentar,they present,they present,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,third,low,no_safe_match,regular_present
+11541,ames,amar,you love,you love,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+11646,calme,calmar,he calms; she calms; it calms,he calms; she calms; it calms,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+11700,marine,marinar,I marinate,I marinate,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+12022,cases,casar,you marry,you marry,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+12269,preste,prestar,he lends; she lends; it lends,he lends; she lends; it lends,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+12548,corras,correr,you run,you run,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+12828,sublime,sublimar,I sublimate,I sublimate,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+12858,estéis,estar,you are,you are (present subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,present,second,high,no_safe_match,manual_irregular
+13085,more,morar,he resides; she resides; it resides,he resides; she resides; it resides,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+13146,fueses,ir,you went,you went (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_se,second,high,unsafe_regular_candidate,manual_irregular
+13613,dieras,dar,you gave,you gave (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_ra,second,high,no_safe_match,manual_irregular
+13648,pose,posar,he poses; she poses; it poses,he poses; she poses; it poses,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+13828,consumen,consumar,they consume,they consume,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,third,low,no_safe_match,regular_present
+14117,robe,robar,he robs; she robs; it robs,he robs; she robs; it robs,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+14475,leas,leer,you read,you read,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+14598,disculpes,disculpar,you excuse,you excuse,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+15158,vivamos,vivir,we live,we live,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,first,low,no_safe_match,regular_present
+15214,perfumes,perfumar,you scent,you scent,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+15402,sudes,sudar,you sweat,you sweat,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+16599,solemos,solar,we tend to,we tend to,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,first,low,no_safe_match,regular_present
+17109,dejase,dejar,I left,I left,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,imperfect_se,singular_ambiguous,medium,no_safe_match,regular_imperfect_se
+17409,fije,fijar,he fixes; she fixes; it fixes,he fixes; she fixes; it fixes,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+17663,podes,podar,you prune,you prune,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+18517,ares,arar,you plough,you plough,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+18750,pasase,pasar,I passed,I passed,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,imperfect_se,singular_ambiguous,medium,no_safe_match,regular_imperfect_se
+18879,tratase,tratar,I treated,I treated,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,imperfect_se,singular_ambiguous,medium,no_safe_match,regular_imperfect_se
+18942,fuésemos,ir,we went,we went (past subjunctive),yes,translation_changed,not_imperative_form,,,,subjunctive_form,imperfect_se,first,high,unsafe_regular_candidate,manual_irregular
+19359,marches,marchar,you go,you go,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+19456,quedase,quedar,I was,I was,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,imperfect_se,singular_ambiguous,medium,no_safe_match,regular_imperfect_se
+19510,recibas,recibir,you receive,you receive,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+19797,falle,fallar,he fails; she fails; it fails,he fails; she fails; it fails,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+20122,apaches,apachar,you crush,you crush,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+20151,vendan,vender,they sell,they sell,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,third,low,no_safe_match,regular_present
+20477,golpees,golpear,you hit,you hit,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+20576,roben,robar,they rob,they rob,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,third,low,no_safe_match,regular_present
+20963,baste,bastar,I am enough,I am enough,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+21006,abramos,abrir,we open,we open,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,first,low,no_safe_match,regular_present
+21035,escapes,escapar,you escape,you escape,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+21893,apures,apurar,you drain,you drain,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+21898,enclave,enclavar,I pierce,I pierce,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+22247,teman,temer,they have an obsession,they have an obsession,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,third,low,no_safe_match,regular_present
+23173,single,singlar,I sail,I sail,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+23220,contrate,contratar,he contracts; she contracts; it contracts,he contracts; she contracts; it contracts,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+23813,gaste,gastar,he spends; she spends; it spends,he spends; she spends; it spends,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+23865,anote,anotar,he annotates; she annotates; it annotates,he annotates; she annotates; it annotates,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+24046,funde,fundar,he founds; she founds; it founds,he founds; she founds; it founds,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+24166,hablase,hablar,I talked,I talked,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,imperfect_se,singular_ambiguous,medium,no_safe_match,regular_imperfect_se
+24367,canse,cansar,he tires; she tires; it tires,he tires; she tires; it tires,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+24697,falles,fallar,you fail,you fail,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+24856,adobe,adobar,I marinate,I marinate,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+24877,apure,apurar,he drains; she drains; it drains,he drains; she drains; it drains,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+24960,mandes,mandar,you send,you send,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+26559,poses,posar,you pose,you pose,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+26965,señale,señalar,he signals; she signals; it signals,he signals; she signals; it signals,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+27235,funden,fundar,they smelt,they smelt,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,third,low,no_safe_match,regular_present
+27469,llamase,llamar,I summoned,I summoned,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,imperfect_se,singular_ambiguous,medium,no_safe_match,regular_imperfect_se
+27688,arda,arder,he burns; she burns; it burns,he burns; she burns; it burns,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+28646,pinte,pintar,he paints; she paints; it paints,he paints; she paints; it paints,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+28749,enclaves,enclavar,you pierce,you pierce,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+29656,palme,palmar,he dies; she dies; it dies,he dies; she dies; it dies,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+29742,matase,matar,I killed,I killed,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,imperfect_se,singular_ambiguous,medium,no_safe_match,regular_imperfect_se
+30373,ayudase,ayudar,I helped,I helped,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,imperfect_se,singular_ambiguous,medium,no_safe_match,regular_imperfect_se
+30521,vendamos,vender,we bandaged,we bandaged,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,first,low,no_safe_match,regular_present
+30930,esperase,esperar,I hoped,I hoped,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,imperfect_se,singular_ambiguous,medium,no_safe_match,regular_imperfect_se
+31363,temáis,temer,you have an obsession,you have an obsession,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+31535,salves,salvar,you save,you save,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+31817,pises,pisar,you step,you step,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+31953,enfrentes,enfrentar,you confront,you confront,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+32186,eclipses,eclipsar,you eclipse,you eclipse,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+32424,tomase,tomar,I took,I took,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,imperfect_se,singular_ambiguous,medium,no_safe_match,regular_imperfect_se
+32505,viole,violar,he violates; she violates; it violates,he violates; she violates; it violates,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+33016,sume,sumar,he adds; she adds; it adds,he adds; she adds; it adds,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+33028,crepes,crepar,you crêpe,you crêpe,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+33235,tape,tapar,I cover,I cover,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+33396,fracase,fracasar,he fails; she fails; it fails,he fails; she fails; it fails,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+33820,sublimes,sublimar,you sublimate,you sublimate,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+34244,convoyes,convoyar,you convoy,you convoy,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,second,low,no_safe_match,regular_present
+34327,selfie,selfiar,he selfies; she selfies; it selfies,he selfies; she selfies; it selfies,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present
+34406,delate,delatar,he informs on; she informs on; it informs on,he informs on; she informs on; it informs on,no,subjunctive_candidate_only,not_imperative_form,,,,subjunctive_form,present,singular_ambiguous,low,no_safe_match,regular_present

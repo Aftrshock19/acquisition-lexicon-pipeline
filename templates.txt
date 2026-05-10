@@ -1,0 +1,1392 @@
+Absolutely. Here is a **large drop in template bank spec** for the long sentence repair system.
+
+I am going to structure it so you can use it directly in code or convert it to JSON, YAML, CSV, or Python dicts.
+
+The design goal is this:
+
+1. keep the **exact target surface form**
+2. keep the sentence **natural**
+3. keep it **short**
+4. keep it **self contained**
+5. make it easy to generate a **clean English translation**
+
+Everything below is built for the repair stage where the original sentence is too long, too dense, too legal, too weird, or too broken.
+
+---
+
+# 1. Core design contract
+
+Every repair template should aim for:
+
+1. **Preferred length**: 4 to 10 words
+2. **Hard maximum**: 12 words
+3. **Clause count**: one clause preferred
+4. **Target visibility**: target form must be central
+5. **Support vocabulary**: high frequency when possible
+6. **Translation ease**: should translate cleanly into short English
+
+Each template should be represented with metadata like this:
+
+```python
+{
+    "template_id": "v_pres_01",
+    "pos_family": "verb",
+    "mood": "indicative",
+    "tense": "present",
+    "person": "1s",
+    "pattern": "Yo {target} {obj}.",
+    "slots": ["target", "obj"],
+    "slot_constraints": {
+        "obj": ["concrete_noun", "abstract_noun", "pronoun_optional"]
+    },
+    "preferred_word_count_min": 3,
+    "preferred_word_count_max": 6,
+    "register": "neutral",
+    "difficulty": "easy",
+    "translation_pattern": "I {target_en} {obj_en}.",
+    "notes": "Very safe for many transitive present forms"
+}
+```
+
+You do not need every template to be this detailed at first, but this is the ideal structure.
+
+---
+
+# 2. Placeholder schema
+
+Use a controlled set of placeholders so your generator stays stable.
+
+## Subjects
+
+```python
+SUBJECTS = {
+    "yo": "Yo",
+    "tu": "Tú",
+    "el": "Él",
+    "ella": "Ella",
+    "usted": "Usted",
+    "nosotros": "Nosotros",
+    "ellos": "Ellos",
+    "ellas": "Ellas",
+    "usted_plural": "Ustedes",
+    "neutral_sg": "Eso",
+    "thing_sg": "La cosa",
+    "thing_pl": "Las cosas",
+    "person_sg_m": "El hombre",
+    "person_sg_f": "La mujer",
+    "person_pl_m": "Los niños",
+    "person_pl_f": "Las niñas"
+}
+```
+
+## Objects
+
+Use curated safe lists by type.
+
+```python
+SAFE_OBJECTS = {
+    "generic_concrete": [
+        "la carta", "el libro", "la puerta", "la mesa", "la caja",
+        "la bolsa", "el vaso", "la ropa", "la comida", "la llave"
+    ],
+    "generic_abstract": [
+        "la verdad", "el problema", "la idea", "el plan", "el cambio",
+        "la respuesta", "la ayuda", "la noticia", "el permiso", "la paz"
+    ],
+    "generic_people": [
+        "a su madre", "a su amiga", "a los niños", "a la policía"
+    ],
+    "generic_places": [
+        "aquí", "allí", "en casa", "en clase", "en la calle", "en el trabajo"
+    ],
+    "generic_time": [
+        "hoy", "mañana", "ahora", "pronto", "siempre", "a veces", "antes"
+    ]
+}
+```
+
+## Adjectival nouns
+
+```python
+ADJ_NOUNS = {
+    "ser": ["La idea", "El plan", "La situación", "La respuesta"],
+    "estar": ["La puerta", "La casa", "La comida", "La mesa", "La niña"]
+}
+```
+
+## Safe adverbs
+
+```python
+SAFE_ADVERBS = [
+    "bien", "mal", "aquí", "allí", "hoy", "mañana", "pronto",
+    "siempre", "nunca", "ya", "todavía", "despacio", "rápido"
+]
+```
+
+## Safe discourse endings if needed
+
+Use sparingly.
+
+```python
+SAFE_ENDINGS = [
+    "ahora", "hoy", "mañana", "aquí", "en casa", "de nuevo"
+]
+```
+
+---
+
+# 3. Global selection rules
+
+Before templates, here is the rule order the repair system should use.
+
+## Rule 1
+
+Prefer templates with the fewest slots.
+
+A 2 slot template is safer than a 4 slot template.
+
+## Rule 2
+
+Prefer concrete nouns over abstract nouns unless the target strongly prefers abstract context.
+
+## Rule 3
+
+Prefer declarative sentences over conditionals, relatives, and subordinate structures.
+
+## Rule 4
+
+Only use subordinate triggers like `que`, `si`, `aunque`, `cuando`, `hasta que` when the target form really needs them.
+
+## Rule 5
+
+If the target is a fragile function word, use hand built templates only.
+
+## Rule 6
+
+If the target is rare or semantically specific, choose a semantically compatible noun set rather than generic filler.
+
+## Rule 7
+
+If a generated result exceeds 12 words, back off to a smaller template, not a trim.
+
+---
+
+# 4. Massive template bank for verbs
+
+We will split verbs into:
+
+1. indicative present
+2. indicative preterite
+3. indicative imperfect
+4. indicative future
+5. conditional
+6. imperative
+7. subjunctive present
+8. subjunctive imperfect
+9. perfect subjunctive
+10. infinitive
+11. gerund
+12. participle as adjective or passive
+
+---
+
+## 4A. Verb templates, indicative present
+
+These are the safest in the entire bank.
+
+### Present, first person singular
+
+```python
+VERB_INDICATIVE_PRESENT_1S = [
+    {"template_id": "v_pres_1s_01", "pattern": "Yo {target}.", "translation": "I {target_en}."},
+    {"template_id": "v_pres_1s_02", "pattern": "Yo {target} aquí.", "translation": "I {target_en} here."},
+    {"template_id": "v_pres_1s_03", "pattern": "Yo {target} hoy.", "translation": "I {target_en} today."},
+    {"template_id": "v_pres_1s_04", "pattern": "Yo {target} bien.", "translation": "I {target_en} well."},
+    {"template_id": "v_pres_1s_05", "pattern": "Yo {target} eso.", "translation": "I {target_en} that."},
+    {"template_id": "v_pres_1s_06", "pattern": "Yo {target} la carta.", "translation": "I {target_en} the letter."},
+    {"template_id": "v_pres_1s_07", "pattern": "Yo {target} el plan.", "translation": "I {target_en} the plan."},
+    {"template_id": "v_pres_1s_08", "pattern": "Yo {target} la verdad.", "translation": "I {target_en} the truth."},
+    {"template_id": "v_pres_1s_09", "pattern": "Yo {target} en casa.", "translation": "I {target_en} at home."},
+    {"template_id": "v_pres_1s_10", "pattern": "Siempre {target} temprano.", "translation": "I always {target_en} early."},
+]
+```
+
+### Present, second person singular
+
+```python
+VERB_INDICATIVE_PRESENT_2S = [
+    {"template_id": "v_pres_2s_01", "pattern": "Tú {target}.", "translation": "You {target_en}."},
+    {"template_id": "v_pres_2s_02", "pattern": "Tú {target} bien.", "translation": "You {target_en} well."},
+    {"template_id": "v_pres_2s_03", "pattern": "Tú {target} eso.", "translation": "You {target_en} that."},
+    {"template_id": "v_pres_2s_04", "pattern": "Tú {target} aquí.", "translation": "You {target_en} here."},
+    {"template_id": "v_pres_2s_05", "pattern": "Hoy {target} mucho.", "translation": "Today you {target_en} a lot."},
+]
+```
+
+### Present, third person singular
+
+```python
+VERB_INDICATIVE_PRESENT_3S = [
+    {"template_id": "v_pres_3s_01", "pattern": "Él {target}.", "translation": "He {target_en}."},
+    {"template_id": "v_pres_3s_02", "pattern": "Ella {target}.", "translation": "She {target_en}."},
+    {"template_id": "v_pres_3s_03", "pattern": "Él {target} aquí.", "translation": "He {target_en} here."},
+    {"template_id": "v_pres_3s_04", "pattern": "Ella {target} bien.", "translation": "She {target_en} well."},
+    {"template_id": "v_pres_3s_05", "pattern": "Él {target} el plan.", "translation": "He {target_en} the plan."},
+    {"template_id": "v_pres_3s_06", "pattern": "Ella {target} la verdad.", "translation": "She {target_en} the truth."},
+    {"template_id": "v_pres_3s_07", "pattern": "Siempre {target} temprano.", "translation": "He always {target_en} early."},
+    {"template_id": "v_pres_3s_08", "pattern": "A veces {target} sola.", "translation": "She sometimes {target_en} alone."},
+]
+```
+
+### Present, first person plural
+
+```python
+VERB_INDICATIVE_PRESENT_1P = [
+    {"template_id": "v_pres_1p_01", "pattern": "Nosotros {target}.", "translation": "We {target_en}."},
+    {"template_id": "v_pres_1p_02", "pattern": "Nosotros {target} juntos.", "translation": "We {target_en} together."},
+    {"template_id": "v_pres_1p_03", "pattern": "Siempre {target} aquí.", "translation": "We always {target_en} here."},
+    {"template_id": "v_pres_1p_04", "pattern": "Hoy {target} el plan.", "translation": "Today we {target_en} the plan."},
+]
+```
+
+### Present, third person plural
+
+```python
+VERB_INDICATIVE_PRESENT_3P = [
+    {"template_id": "v_pres_3p_01", "pattern": "Ellos {target}.", "translation": "They {target_en}."},
+    {"template_id": "v_pres_3p_02", "pattern": "Ellas {target}.", "translation": "They {target_en}."},
+    {"template_id": "v_pres_3p_03", "pattern": "Ellos {target} aquí.", "translation": "They {target_en} here."},
+    {"template_id": "v_pres_3p_04", "pattern": "Ellas {target} bien.", "translation": "They {target_en} well."},
+    {"template_id": "v_pres_3p_05", "pattern": "Siempre {target} juntas.", "translation": "They always {target_en} together."},
+    {"template_id": "v_pres_3p_06", "pattern": "Hoy {target} el cambio.", "translation": "Today they {target_en} the change."},
+]
+```
+
+---
+
+## 4B. Verb templates, preterite
+
+Use short time anchors. These are excellent for narration.
+
+```python
+VERB_PRETERITE = [
+    {"template_id": "v_pret_01", "pattern": "Ayer {target}.", "translation": "Yesterday I {target_en_past}."},
+    {"template_id": "v_pret_02", "pattern": "Ayer {target} aquí.", "translation": "Yesterday I {target_en_past} here."},
+    {"template_id": "v_pret_03", "pattern": "Al final {target}.", "translation": "In the end, he {target_en_past}."},
+    {"template_id": "v_pret_04", "pattern": "Por fin {target}.", "translation": "At last, she {target_en_past}."},
+    {"template_id": "v_pret_05", "pattern": "Anoche {target} sola.", "translation": "Last night she {target_en_past} alone."},
+    {"template_id": "v_pret_06", "pattern": "Ayer {target} la carta.", "translation": "Yesterday he {target_en_past} the letter."},
+    {"template_id": "v_pret_07", "pattern": "Ayer {target} el plan.", "translation": "Yesterday they {target_en_past} the plan."},
+    {"template_id": "v_pret_08", "pattern": "Entonces {target}.", "translation": "Then he {target_en_past}."},
+    {"template_id": "v_pret_09", "pattern": "Después {target}.", "translation": "After that, she {target_en_past}."},
+    {"template_id": "v_pret_10", "pattern": "Ese día {target} bien.", "translation": "That day he {target_en_past} well."},
+]
+```
+
+For exact persons, you will want person specific versions too:
+
+```python
+VERB_PRETERITE_PERSONAL = {
+    "1s": [
+        "Ayer {target}.",
+        "Ayer {target} eso.",
+        "Por fin {target}.",
+        "Después {target} en casa."
+    ],
+    "3s": [
+        "Ayer {target}.",
+        "Al final {target}.",
+        "Entonces {target} sola.",
+        "Ayer {target} la puerta."
+    ],
+    "3p": [
+        "Ayer {target}.",
+        "Al final {target} juntos.",
+        "Después {target} la verdad."
+    ]
+}
+```
+
+Examples this helps with:
+`vine`, `llevó`, `encontró`, `acercó`, `deseó`, `recordó`, `consideró`, `planeó`.
+
+---
+
+## 4C. Verb templates, imperfect
+
+These should feel habitual, background, repeated, or descriptive.
+
+```python
+VERB_IMPERFECT = [
+    {"template_id": "v_impf_01", "pattern": "Antes {target} aquí.", "translation": "Before, he used to {target_en_base} here."},
+    {"template_id": "v_impf_02", "pattern": "De niño {target} mucho.", "translation": "As a child, he used to {target_en_base} a lot."},
+    {"template_id": "v_impf_03", "pattern": "Siempre {target} así.", "translation": "He always used to {target_en_base} like that."},
+    {"template_id": "v_impf_04", "pattern": "Entonces {target} sola.", "translation": "Back then, she used to {target_en_base} alone."},
+    {"template_id": "v_impf_05", "pattern": "Antes {target} en casa.", "translation": "Before, I used to {target_en_base} at home."},
+    {"template_id": "v_impf_06", "pattern": "Siempre {target} la verdad.", "translation": "He always used to {target_en_base} the truth."},
+    {"template_id": "v_impf_07", "pattern": "Antes {target} el plan.", "translation": "Before, they used to {target_en_base} the plan."},
+]
+```
+
+Examples:
+`ganaba`, `expresaba`, `practicaba`, `mostraba`, `llegaba`, `trabajaba`, `permanecía`.
+
+---
+
+## 4D. Verb templates, future
+
+Very useful for short repairs.
+
+```python
+VERB_FUTURE = [
+    {"template_id": "v_fut_01", "pattern": "Mañana {target}.", "translation": "Tomorrow he will {target_en_base}."},
+    {"template_id": "v_fut_02", "pattern": "Pronto {target}.", "translation": "Soon she will {target_en_base}."},
+    {"template_id": "v_fut_03", "pattern": "Mañana {target} aquí.", "translation": "Tomorrow he will {target_en_base} here."},
+    {"template_id": "v_fut_04", "pattern": "Pronto {target} el cambio.", "translation": "Soon it will {target_en_base} the change."},
+    {"template_id": "v_fut_05", "pattern": "Mi jefe {target} la casa.", "translation": "My boss will {target_en_base} the house."},
+    {"template_id": "v_fut_06", "pattern": "Todo {target} bien.", "translation": "Everything will {target_en_base} well."},
+    {"template_id": "v_fut_07", "pattern": "Ella {target} mañana.", "translation": "She will {target_en_base} tomorrow."},
+]
+```
+
+Examples:
+`comprará`, `aumentará`, `demostrará`, `trabajará`, `saldrá`.
+
+---
+
+## 4E. Verb templates, conditional
+
+```python
+VERB_CONDITIONAL = [
+    {"template_id": "v_cond_01", "pattern": "Yo {target} eso.", "translation": "I would {target_en_base} that."},
+    {"template_id": "v_cond_02", "pattern": "Ella {target} aquí.", "translation": "She would {target_en_base} here."},
+    {"template_id": "v_cond_03", "pattern": "Nosotros {target} juntos.", "translation": "We would {target_en_base} together."},
+    {"template_id": "v_cond_04", "pattern": "Así {target} mejor.", "translation": "That way it would {target_en_base} better."},
+]
+```
+
+Examples:
+`podría`, `sería`, `ayudaría`, if you have such forms in the dataset.
+
+---
+
+## 4F. Verb templates, imperative
+
+These are fragile and need carefully curated short patterns.
+
+### Tú affirmative
+
+```python
+VERB_IMPERATIVE_TU = [
+    {"template_id": "v_imp_tu_01", "pattern": "{target} ahora.", "translation": "{target_en_base_cap} now."},
+    {"template_id": "v_imp_tu_02", "pattern": "{target} aquí.", "translation": "{target_en_base_cap} here."},
+    {"template_id": "v_imp_tu_03", "pattern": "{target} bien.", "translation": "{target_en_base_cap} properly."},
+    {"template_id": "v_imp_tu_04", "pattern": "{target} la puerta.", "translation": "{target_en_base_cap} the door."},
+    {"template_id": "v_imp_tu_05", "pattern": "{target} el plan.", "translation": "{target_en_base_cap} the plan."},
+]
+```
+
+### Usted / ustedes
+
+Be careful because these can overlap with subjunctive looking forms.
+
+```python
+VERB_IMPERATIVE_USTED = [
+    {"template_id": "v_imp_usted_01", "pattern": "{target} ahora, por favor.", "translation": "Please {target_en_base} now."},
+    {"template_id": "v_imp_usted_02", "pattern": "{target} aquí.", "translation": "{target_en_base_cap} here."},
+]
+```
+
+### Negative imperative
+
+```python
+VERB_NEG_IMPERATIVE = [
+    {"template_id": "v_neg_imp_01", "pattern": "No {target} eso.", "translation": "Do not {target_en_base} that."},
+    {"template_id": "v_neg_imp_02", "pattern": "No {target} ahora.", "translation": "Do not {target_en_base} now."},
+    {"template_id": "v_neg_imp_03", "pattern": "No {target} aquí.", "translation": "Do not {target_en_base} here."},
+]
+```
+
+Examples:
+`salgan` if imperative interpretation is intended, though in many repair cases it is better to rewrite as subjunctive trigger or command context.
+
+---
+
+## 4G. Verb templates, present subjunctive
+
+One of the most important banks for your data.
+
+### Trigger bank
+
+```python
+SUBJUNCTIVE_TRIGGERS = {
+    "desire": ["Quiero que", "Espero que", "Prefiero que"],
+    "possibility": ["Es posible que", "Puede que", "Quizá"],
+    "emotion": ["Me alegra que", "Lamento que"],
+    "impersonal": ["Es mejor que", "Es importante que", "Conviene que"],
+    "command_like": ["Que", "Ojalá"]
+}
+```
+
+### Present subjunctive templates
+
+```python
+VERB_SUBJ_PRESENT = [
+    {"template_id": "v_subj_pres_01", "pattern": "Espero que {target}.", "translation": "I hope that {target_en_subj}."},
+    {"template_id": "v_subj_pres_02", "pattern": "Quiero que {target} ahora.", "translation": "I want {target_en_subj} now."},
+    {"template_id": "v_subj_pres_03", "pattern": "Es posible que {target}.", "translation": "{target_en_may}."},
+    {"template_id": "v_subj_pres_04", "pattern": "Quizá {target} hoy.", "translation": "Maybe {target_en_subj} today."},
+    {"template_id": "v_subj_pres_05", "pattern": "Es mejor que {target}.", "translation": "It is better that {target_en_subj}."},
+    {"template_id": "v_subj_pres_06", "pattern": "Quiero que {target} aquí.", "translation": "I want {target_en_subj} here."},
+    {"template_id": "v_subj_pres_07", "pattern": "Espero que {target} bien.", "translation": "I hope {target_en_subj} well."},
+    {"template_id": "v_subj_pres_08", "pattern": "Ojalá {target} pronto.", "translation": "Hopefully {target_en_subj} soon."},
+]
+```
+
+Examples:
+`hagan`, `salgan`, `esté`, `sepa`, `vaya`, `puedan`, `quiera`.
+
+### Better English mapping note
+
+For subjunctive, you often do **not** want literal “that he do”.
+You want something like:
+
+* `Espero que hagan lo correcto.` → `I hope they do the right thing.`
+* `Es posible que salgan hoy.` → `They may leave today.`
+
+So your template metadata should allow non literal English glossing.
+
+---
+
+## 4H. Verb templates, imperfect subjunctive
+
+```python
+VERB_SUBJ_IMPERFECT = [
+    {"template_id": "v_subj_impf_01", "pattern": "Ojalá {target}.", "translation": "If only {target_en_subj_impf}."},
+    {"template_id": "v_subj_impf_02", "pattern": "Si {target}, yo iría.", "translation": "If {target_en_cond_clause}, I would go."},
+    {"template_id": "v_subj_impf_03", "pattern": "Quería que {target}.", "translation": "I wanted {target_en_subj_impf}."},
+    {"template_id": "v_subj_impf_04", "pattern": "Era mejor que {target}.", "translation": "It was better that {target_en_subj_impf}."},
+    {"template_id": "v_subj_impf_05", "pattern": "Tal vez {target}.", "translation": "Maybe {target_en_subj_impf}."},
+]
+```
+
+Examples:
+`hubiera`, `hiciera`, `fuera`, `tuviera`.
+
+---
+
+## 4I. Verb templates, present perfect subjunctive
+
+These are gold for words like `hayan`.
+
+```python
+VERB_SUBJ_PERFECT = [
+    {"template_id": "v_subj_perf_01", "pattern": "Espero que {target} llegado bien.", "translation": "I hope they have arrived safely."},
+    {"template_id": "v_subj_perf_02", "pattern": "Es posible que {target} salido.", "translation": "They may have left."},
+    {"template_id": "v_subj_perf_03", "pattern": "Dudo que {target} entendido.", "translation": "I doubt they have understood."},
+    {"template_id": "v_subj_perf_04", "pattern": "Hasta que {target} dado permiso.", "translation": "Until they have given permission."},
+    {"template_id": "v_subj_perf_05", "pattern": "Quizá {target} vuelto ya.", "translation": "Maybe they have already come back."},
+]
+```
+
+You may want to maintain a list of safe participles:
+`llegado`, `salido`, `vuelto`, `hecho`, `dado`, `visto`, `entendido`.
+
+---
+
+## 4J. Verb templates, infinitive
+
+Infinitives work well in impersonal constructions and complements.
+
+```python
+VERB_INFINITIVE = [
+    {"template_id": "v_inf_01", "pattern": "Quiero {target} eso.", "translation": "I want to {target_en_base} that."},
+    {"template_id": "v_inf_02", "pattern": "Puede {target} aquí.", "translation": "He can {target_en_base} here."},
+    {"template_id": "v_inf_03", "pattern": "Es bueno {target}.", "translation": "It is good to {target_en_base}."},
+    {"template_id": "v_inf_04", "pattern": "Necesita {target} ahora.", "translation": "He needs to {target_en_base} now."},
+    {"template_id": "v_inf_05", "pattern": "No quiero {target} solo.", "translation": "I do not want to {target_en_base} alone."},
+]
+```
+
+Examples:
+`hacer`, `dejar`, `saber`, `querer` if represented as infinitive targets.
+
+---
+
+## 4K. Verb templates, gerund
+
+Very important for your repair bank.
+
+```python
+VERB_GERUND = [
+    {"template_id": "v_ger_01", "pattern": "Está {target}.", "translation": "He is {target_en_ing}."},
+    {"template_id": "v_ger_02", "pattern": "Sigue {target}.", "translation": "He keeps {target_en_ing}."},
+    {"template_id": "v_ger_03", "pattern": "Aprende {target}.", "translation": "He learns by {target_en_ing}."},
+    {"template_id": "v_ger_04", "pattern": "Lo hizo {target}.", "translation": "He did it by {target_en_ing}."},
+    {"template_id": "v_ger_05", "pattern": "Está {target} aquí.", "translation": "He is {target_en_ing} here."},
+    {"template_id": "v_ger_06", "pattern": "Sigue {target} solo.", "translation": "He keeps {target_en_ing} alone."},
+]
+```
+
+Examples:
+`llevando`, `comparando`, `indicando`, `renunciando`, `aplicando`, `emitiendo`, `investigando`, `olvidando`, `añadiendo`.
+
+You should also have a small set of safe preceding verbs:
+`está`, `sigue`, `terminó`, `aprende`, `lo hizo`, `acabó`.
+
+---
+
+## 4L. Verb templates, participle as adjective or passive
+
+```python
+VERB_PARTICIPLE = [
+    {"template_id": "v_part_01", "pattern": "Está {target}.", "translation": "It is {target_en_participle}."},
+    {"template_id": "v_part_02", "pattern": "Fue {target}.", "translation": "It was {target_en_participle}."},
+    {"template_id": "v_part_03", "pattern": "Quedó {target}.", "translation": "It ended up {target_en_participle}."},
+    {"template_id": "v_part_04", "pattern": "Era un caso {target}.", "translation": "It was a {target_en_participle} case."},
+    {"template_id": "v_part_05", "pattern": "El hombre era muy {target}.", "translation": "The man was very {target_en_participle}."},
+]
+```
+
+Examples:
+`buscado`, `alcanzado`, `establecido`, `reducido`, `producido`, depending on the dataset.
+
+---
+
+# 5. Noun template bank
+
+Nouns need simple high value context. Split by singular and plural.
+
+## 5A. Common noun, singular
+
+```python
+NOUN_SINGULAR = [
+    {"template_id": "n_sg_01", "pattern": "Hay un {target}.", "translation": "There is a {target_en}."},
+    {"template_id": "n_sg_02", "pattern": "Tengo un {target}.", "translation": "I have a {target_en}."},
+    {"template_id": "n_sg_03", "pattern": "Veo el {target}.", "translation": "I see the {target_en}."},
+    {"template_id": "n_sg_04", "pattern": "El {target} está aquí.", "translation": "The {target_en} is here."},
+    {"template_id": "n_sg_05", "pattern": "Ese {target} es nuevo.", "translation": "That {target_en} is new."},
+    {"template_id": "n_sg_06", "pattern": "Necesito ese {target}.", "translation": "I need that {target_en}."},
+]
+```
+
+## 5B. Common noun, plural
+
+```python
+NOUN_PLURAL = [
+    {"template_id": "n_pl_01", "pattern": "Hay {target}.", "translation": "There are {target_en}."},
+    {"template_id": "n_pl_02", "pattern": "Veo {target}.", "translation": "I see {target_en}."},
+    {"template_id": "n_pl_03", "pattern": "Necesitan {target}.", "translation": "They need {target_en}."},
+    {"template_id": "n_pl_04", "pattern": "Esos {target} son nuevos.", "translation": "Those {target_en} are new."},
+    {"template_id": "n_pl_05", "pattern": "Aquí venden {target}.", "translation": "They sell {target_en} here."},
+]
+```
+
+Examples:
+`casas`, `papás`, `carteras`, `desayunos`, `reglamentos`, though legal nouns should usually be rewritten around friendlier contexts or sent to review.
+
+## 5C. Abstract noun
+
+```python
+NOUN_ABSTRACT = [
+    {"template_id": "n_abs_01", "pattern": "Ese {target} importa.", "translation": "That {target_en} matters."},
+    {"template_id": "n_abs_02", "pattern": "No tengo {target}.", "translation": "I do not have {target_en}."},
+    {"template_id": "n_abs_03", "pattern": "Necesitamos {target}.", "translation": "We need {target_en}."},
+    {"template_id": "n_abs_04", "pattern": "El {target} fue claro.", "translation": "The {target_en} was clear."},
+]
+```
+
+---
+
+# 6. Adjective template bank
+
+Split by `ser` and `estar` preference. Some adjectives can take both, but prefer one.
+
+## 6A. Adjectives with ser
+
+```python
+ADJ_SER = [
+    {"template_id": "adj_ser_01", "pattern": "Es {target}.", "translation": "It is {target_en}."},
+    {"template_id": "adj_ser_02", "pattern": "La idea es {target}.", "translation": "The idea is {target_en}."},
+    {"template_id": "adj_ser_03", "pattern": "El plan es {target}.", "translation": "The plan is {target_en}."},
+    {"template_id": "adj_ser_04", "pattern": "Sus hábitos son {target}.", "translation": "Their habits are {target_en}."},
+    {"template_id": "adj_ser_05", "pattern": "Es una respuesta {target}.", "translation": "It is a {target_en} answer."},
+]
+```
+
+Examples:
+`inusuales`, `adecuado`, `conveniente`, `ricas` in some contexts though `ricas` often needs a noun.
+
+## 6B. Adjectives with estar
+
+```python
+ADJ_ESTAR = [
+    {"template_id": "adj_estar_01", "pattern": "Está {target}.", "translation": "It is {target_en}."},
+    {"template_id": "adj_estar_02", "pattern": "La puerta está {target}.", "translation": "The door is {target_en}."},
+    {"template_id": "adj_estar_03", "pattern": "La comida está {target}.", "translation": "The food is {target_en}."},
+    {"template_id": "adj_estar_04", "pattern": "Hoy está {target}.", "translation": "Today it is {target_en}."},
+]
+```
+
+Examples:
+`insoportable`, `agradable` if state reading works.
+
+## 6C. Plural adjective patterns
+
+```python
+ADJ_PLURAL = [
+    {"template_id": "adj_pl_01", "pattern": "Son {target}.", "translation": "They are {target_en}."},
+    {"template_id": "adj_pl_02", "pattern": "Sus ideas son {target}.", "translation": "Their ideas are {target_en}."},
+    {"template_id": "adj_pl_03", "pattern": "Esos rasgos son {target}.", "translation": "Those traits are {target_en}."},
+]
+```
+
+---
+
+# 7. Adverb template bank
+
+Adverbs are straightforward if you give them a clean host verb.
+
+```python
+ADVERB_TEMPLATES = [
+    {"template_id": "adv_01", "pattern": "Habla {target}.", "translation": "He speaks {target_en}."},
+    {"template_id": "adv_02", "pattern": "Llegó {target}.", "translation": "He arrived {target_en}."},
+    {"template_id": "adv_03", "pattern": "Lo hizo {target}.", "translation": "He did it {target_en}."},
+    {"template_id": "adv_04", "pattern": "Caminó {target}.", "translation": "He walked {target_en}."},
+    {"template_id": "adv_05", "pattern": "Respira {target}.", "translation": "He breathes {target_en}."},
+]
+```
+
+Need curated English for some adverbs, because not all map literally.
+
+---
+
+# 8. Pronoun template bank
+
+Pronouns are fragile and need hand built sentences.
+
+## 8A. Personal pronouns
+
+```python
+PRONOUN_PERSONAL = [
+    {"template_id": "pron_pers_01", "pattern": "{target} vino ayer.", "translation": "{target_en_cap} came yesterday."},
+    {"template_id": "pron_pers_02", "pattern": "Lo vi con {target}.", "translation": "I saw him with {target_en}."},
+]
+```
+
+## 8B. Object pronouns
+
+```python
+PRONOUN_OBJECT = [
+    {"template_id": "pron_obj_01", "pattern": "No {target} vi.", "translation": "I did not see {target_en}."},
+    {"template_id": "pron_obj_02", "pattern": "Quiero hablar de {target}.", "translation": "I want to talk about {target_en}."},
+]
+```
+
+## 8C. Demonstratives
+
+```python
+PRONOUN_DEMONSTRATIVE = [
+    {"template_id": "pron_dem_01", "pattern": "{target} es mejor.", "translation": "{target_en_cap} is better."},
+    {"template_id": "pron_dem_02", "pattern": "No quiero {target}.", "translation": "I do not want {target_en}."},
+]
+```
+
+## 8D. Relative and fragile pronouns
+
+### `cuya`
+
+```python
+RELATIVE_CUYA = [
+    {"template_id": "rel_cuya_01", "pattern": "Conocí a una mujer cuya hija vive aquí.", "translation": "I met a woman whose daughter lives here."},
+    {"template_id": "rel_cuya_02", "pattern": "Es un autor cuya obra admiro.", "translation": "He is an author whose work I admire."},
+]
+```
+
+### `quien`, `quienes`
+
+```python
+RELATIVE_QUIEN = [
+    {"template_id": "rel_quien_01", "pattern": "Fue Ana quien llamó.", "translation": "It was Ana who called."},
+    {"template_id": "rel_quien_02", "pattern": "Ellos son quienes mandan.", "translation": "They are the ones who are in charge."},
+]
+```
+
+---
+
+# 9. Determiner and article template bank
+
+These should usually be built around a noun. Do not leave them floating.
+
+## 9A. Definite articles
+
+```python
+ARTICLE_DEFINITE = [
+    {"template_id": "art_def_01", "pattern": "{target} libro está aquí.", "translation": "The book is here."},
+    {"template_id": "art_def_02", "pattern": "{target} casa es grande.", "translation": "The house is big."},
+    {"template_id": "art_def_03", "pattern": "{target} niñas llegaron.", "translation": "The girls arrived."},
+]
+```
+
+## 9B. Indefinite articles
+
+```python
+ARTICLE_INDEFINITE = [
+    {"template_id": "art_indef_01", "pattern": "Tengo {target} libro.", "translation": "I have a book."},
+    {"template_id": "art_indef_02", "pattern": "Vi {target} casa.", "translation": "I saw a house."},
+    {"template_id": "art_indef_03", "pattern": "Necesitan {target} idea.", "translation": "They need an idea."},
+]
+```
+
+## 9C. Determiners like `ese`, `esta`, `aquellos`
+
+```python
+DETERMINER_TEMPLATES = [
+    {"template_id": "det_01", "pattern": "{target} idea es buena.", "translation": "That idea is good."},
+    {"template_id": "det_02", "pattern": "{target} casa está lejos.", "translation": "That house is far away."},
+    {"template_id": "det_03", "pattern": "{target} niños llegaron hoy.", "translation": "Those children arrived today."},
+]
+```
+
+---
+
+# 10. Preposition template bank
+
+Prepositions are fragile. Use only very safe patterns.
+
+## 10A. Locative prepositions
+
+```python
+PREP_LOCATIVE = {
+    "en": [
+        {"template_id": "prep_en_01", "pattern": "Está en casa.", "translation": "He is at home."},
+        {"template_id": "prep_en_02", "pattern": "Vive en Madrid.", "translation": "He lives in Madrid."},
+    ],
+    "sobre": [
+        {"template_id": "prep_sobre_01", "pattern": "El libro está sobre la mesa.", "translation": "The book is on the table."},
+    ],
+    "entre": [
+        {"template_id": "prep_entre_01", "pattern": "Está entre dos casas.", "translation": "It is between two houses."},
+    ],
+    "bajo": [
+        {"template_id": "prep_bajo_01", "pattern": "Está bajo la mesa.", "translation": "It is under the table."},
+    ],
+}
+```
+
+## 10B. Directional prepositions
+
+```python
+PREP_DIRECTIONAL = {
+    "a": [
+        {"template_id": "prep_a_01", "pattern": "Voy a casa.", "translation": "I am going home."},
+        {"template_id": "prep_a_02", "pattern": "Llegó a tiempo.", "translation": "He arrived on time."},
+    ],
+    "hasta": [
+        {"template_id": "prep_hasta_01", "pattern": "Espera hasta mañana.", "translation": "Wait until tomorrow."},
+    ],
+    "desde": [
+        {"template_id": "prep_desde_01", "pattern": "Trabajo desde casa.", "translation": "I work from home."},
+    ],
+    "hacia": [
+        {"template_id": "prep_hacia_01", "pattern": "Caminó hacia la puerta.", "translation": "He walked toward the door."},
+    ],
+}
+```
+
+## 10C. Abstract relation prepositions
+
+```python
+PREP_ABSTRACT = {
+    "por": [
+        {"template_id": "prep_por_01", "pattern": "Lo hice por ti.", "translation": "I did it for you."},
+        {"template_id": "prep_por_02", "pattern": "Pasó por aquí.", "translation": "He came by here."},
+    ],
+    "para": [
+        {"template_id": "prep_para_01", "pattern": "Es para ti.", "translation": "It is for you."},
+        {"template_id": "prep_para_02", "pattern": "Salió para casa.", "translation": "He left for home."},
+    ],
+    "sin": [
+        {"template_id": "prep_sin_01", "pattern": "Salió sin dinero.", "translation": "He left without money."},
+    ],
+    "con": [
+        {"template_id": "prep_con_01", "pattern": "Fue con su madre.", "translation": "He went with his mother."},
+    ],
+    "de": [
+        {"template_id": "prep_de_01", "pattern": "Es de aquí.", "translation": "He is from here."},
+        {"template_id": "prep_de_02", "pattern": "Habló de eso.", "translation": "He talked about that."},
+    ],
+}
+```
+
+---
+
+# 11. Conjunction template bank
+
+Conjunctions need carefully limited patterns.
+
+## 11A. `y`
+
+```python
+CONJ_Y = [
+    {"template_id": "conj_y_01", "pattern": "Ana y Luis vinieron.", "translation": "Ana and Luis came."},
+]
+```
+
+## 11B. `o`
+
+```python
+CONJ_O = [
+    {"template_id": "conj_o_01", "pattern": "Hoy o mañana.", "translation": "Today or tomorrow."},
+    {"template_id": "conj_o_02", "pattern": "Vienes o llamas.", "translation": "You either come or call."},
+]
+```
+
+## 11C. `pero`
+
+```python
+CONJ_PERO = [
+    {"template_id": "conj_pero_01", "pattern": "Quería ir, pero no pudo.", "translation": "He wanted to go, but he could not."},
+    {"template_id": "conj_pero_02", "pattern": "Es caro, pero bueno.", "translation": "It is expensive, but good."},
+]
+```
+
+## 11D. `aunque`
+
+```python
+CONJ_AUNQUE = [
+    {"template_id": "conj_aunque_01", "pattern": "Aunque estaba cansado, siguió.", "translation": "Although he was tired, he continued."},
+    {"template_id": "conj_aunque_02", "pattern": "Aunque llueva, iré.", "translation": "Even if it rains, I will go."},
+]
+```
+
+## 11E. `porque`
+
+```python
+CONJ_PORQUE = [
+    {"template_id": "conj_porque_01", "pattern": "No fui porque llovía.", "translation": "I did not go because it was raining."},
+    {"template_id": "conj_porque_02", "pattern": "Sonríe porque sabe.", "translation": "He smiles because he knows."},
+]
+```
+
+For conjunctions, allow 2 clauses only if the word itself requires it.
+
+---
+
+# 12. Numeral template bank
+
+```python
+NUMERAL_TEMPLATES = [
+    {"template_id": "num_01", "pattern": "Tengo {target} libros.", "translation": "I have {target_en} books."},
+    {"template_id": "num_02", "pattern": "Llegaron {target} personas.", "translation": "{target_en_cap} people arrived."},
+    {"template_id": "num_03", "pattern": "Cuesta {target} euros.", "translation": "It costs {target_en} euros."},
+]
+```
+
+Examples:
+`uno`, `cuarenta`.
+
+For `uno` as pronoun:
+
+```python
+NUMERAL_PRONOUN_UNO = [
+    {"template_id": "num_uno_01", "pattern": "Solo uno faltaba.", "translation": "Only one was missing."},
+    {"template_id": "num_uno_02", "pattern": "Uno de ellos vino.", "translation": "One of them came."},
+]
+```
+
+---
+
+# 13. Interjection template bank
+
+```python
+INTERJECTION_TEMPLATES = [
+    {"template_id": "intj_01", "pattern": "¡{target}!", "translation": "{target_en_cap}!"},
+    {"template_id": "intj_02", "pattern": "¡{target}, qué bien!", "translation": "{target_en_cap}, how nice!"},
+]
+```
+
+Use only if the lexical item is actually an interjection.
+
+---
+
+# 14. Special fragile lexical items
+
+These need bespoke mini banks.
+
+## 14A. `tan`
+
+```python
+SPECIAL_TAN = [
+    {"template_id": "sp_tan_01", "pattern": "No está tan mal.", "translation": "It is not that bad."},
+    {"template_id": "sp_tan_02", "pattern": "No era tan fácil.", "translation": "It was not that easy."},
+    {"template_id": "sp_tan_03", "pattern": "Nunca fue tan simple.", "translation": "It was never that simple."},
+]
+```
+
+## 14B. `aun`
+
+```python
+SPECIAL_AUN = [
+    {"template_id": "sp_aun_01", "pattern": "Aun así, siguió.", "translation": "Even so, he continued."},
+    {"template_id": "sp_aun_02", "pattern": "Aun hoy lo recuerdo.", "translation": "Even today I remember it."},
+    {"template_id": "sp_aun_03", "pattern": "Aun entonces dudaba.", "translation": "Even then he doubted."},
+]
+```
+
+## 14C. `ello`
+
+```python
+SPECIAL_ELLO = [
+    {"template_id": "sp_ello_01", "pattern": "No quiero hablar de ello.", "translation": "I do not want to talk about it."},
+    {"template_id": "sp_ello_02", "pattern": "Pensé mucho en ello.", "translation": "I thought a lot about it."},
+    {"template_id": "sp_ello_03", "pattern": "No sé nada de ello.", "translation": "I know nothing about it."},
+]
+```
+
+## 14D. `sean`
+
+This can be subjunctive of `ser` or a proper name collision. For the verb reading:
+
+```python
+SPECIAL_SEAN = [
+    {"template_id": "sp_sean_01", "pattern": "Espero que sean honestos.", "translation": "I hope they are honest."},
+    {"template_id": "sp_sean_02", "pattern": "Es posible que sean nuevos.", "translation": "They may be new."},
+]
+```
+
+## 14E. `hacer`, `saber`, `dejar`, `querer`
+
+Infinitives need clean complement templates:
+
+```python
+SPECIAL_INFINITIVES = {
+    "hacer": [
+        {"template_id": "sp_hacer_01", "pattern": "Quiero hacer eso.", "translation": "I want to do that."},
+        {"template_id": "sp_hacer_02", "pattern": "No puedo hacer más.", "translation": "I cannot do more."},
+    ],
+    "saber": [
+        {"template_id": "sp_saber_01", "pattern": "Quiero saber la verdad.", "translation": "I want to know the truth."},
+        {"template_id": "sp_saber_02", "pattern": "Necesito saber eso.", "translation": "I need to know that."},
+    ],
+    "dejar": [
+        {"template_id": "sp_dejar_01", "pattern": "No puedo dejar eso.", "translation": "I cannot leave that."},
+        {"template_id": "sp_dejar_02", "pattern": "Quiero dejarlo aquí.", "translation": "I want to leave it here."},
+    ],
+    "querer": [
+        {"template_id": "sp_querer_01", "pattern": "No quiero eso.", "translation": "I do not want that."},
+        {"template_id": "sp_querer_02", "pattern": "Quiero quererla bien.", "translation": "I want to love her well."},
+    ]
+}
+```
+
+---
+
+# 15. English generation layer
+
+I strongly recommend **not** storing only one English pattern per Spanish template. Store an English strategy.
+
+Example:
+
+```python
+{
+    "template_id": "v_subj_pres_03",
+    "pattern": "Es posible que {target}.",
+    "english_strategy": "modal_may",
+    "english_pattern": "{subject_en} may {verb_en_base}."
+}
+```
+
+Useful English strategies:
+
+1. `literal_present`
+2. `literal_past`
+3. `used_to`
+4. `will_future`
+5. `modal_may`
+6. `want_someone_to`
+7. `hope_clause`
+8. `gerund_progressive`
+9. `by_gerund`
+10. `copular_adj`
+
+Example mapping table:
+
+```python
+ENGLISH_STRATEGIES = {
+    "literal_present": "{subject_en} {verb_en_present} {rest_en}",
+    "literal_past": "{subject_en} {verb_en_past} {rest_en}",
+    "used_to": "{subject_en} used to {verb_en_base} {rest_en}",
+    "will_future": "{subject_en} will {verb_en_base} {rest_en}",
+    "modal_may": "{subject_en} may {verb_en_base} {rest_en}",
+    "want_someone_to": "I want {object_en} to {verb_en_base} {rest_en}",
+    "hope_clause": "I hope {subject_en} {verb_en_present} {rest_en}",
+    "gerund_progressive": "{subject_en} is {verb_en_ing} {rest_en}",
+    "by_gerund": "{subject_en} does it by {verb_en_ing} {rest_en}",
+    "copular_adj": "{subject_en} is {adj_en} {rest_en}",
+}
+```
+
+---
+
+# 16. POS family routing logic
+
+You need a router before template selection.
+
+```python
+def choose_template_family(row):
+    if row.pos_family == "verb":
+        return choose_verb_template_family(row)
+    if row.pos_family == "noun":
+        return choose_noun_template_family(row)
+    if row.pos_family == "adjective":
+        return choose_adjective_template_family(row)
+    if row.pos_family == "adverb":
+        return ADVERB_TEMPLATES
+    if row.pos_family == "pronoun":
+        return choose_pronoun_template_family(row)
+    if row.pos_family == "article":
+        return ARTICLE_DEFINITE or ARTICLE_INDEFINITE
+    if row.pos_family == "determiner":
+        return DETERMINER_TEMPLATES
+    if row.pos_family == "preposition":
+        return choose_preposition_bank(row.lemma)
+    if row.pos_family == "conjunction":
+        return choose_conjunction_bank(row.lemma)
+    if row.pos_family == "numeral":
+        return NUMERAL_TEMPLATES
+    return None
+```
+
+For verbs:
+
+```python
+def choose_verb_template_family(row):
+    mood = row.get("mood")
+    tense = row.get("tense")
+    person = row.get("person")
+
+    if mood == "indicative" and tense == "present":
+        return VERB_INDICATIVE_PRESENT_1S if person == "1s" else ...
+    if mood == "indicative" and tense == "preterite":
+        return VERB_PRETERITE
+    if mood == "indicative" and tense == "imperfect":
+        return VERB_IMPERFECT
+    if mood == "indicative" and tense == "future":
+        return VERB_FUTURE
+    if mood == "subjunctive" and tense == "present":
+        return VERB_SUBJ_PRESENT
+    if mood == "subjunctive" and tense == "imperfect":
+        return VERB_SUBJ_IMPERFECT
+    if mood == "subjunctive" and tense == "present_perfect":
+        return VERB_SUBJ_PERFECT
+    if mood == "infinitive":
+        return VERB_INFINITIVE
+    if mood == "gerund":
+        return VERB_GERUND
+    if mood == "participle":
+        return VERB_PARTICIPLE
+    return fallback_verb_templates
+```
+
+---
+
+# 17. Slot filling rules
+
+The template bank only works if slot filling is careful.
+
+## Safe slot filling order
+
+1. use fixed lexical material already built into the template if possible
+2. use high frequency abstract objects for abstract verbs
+3. use concrete objects for transitive action verbs
+4. use place and time adverbs only if needed
+5. never add more than one adjunct unless the template was designed for it
+
+## Example slot selection
+
+```python
+def choose_object_for_verb(lemma, semantic_class):
+    if semantic_class == "communication":
+        return random.choice(["la verdad", "eso", "la noticia"])
+    if semantic_class == "physical_action":
+        return random.choice(["la puerta", "la caja", "la carta"])
+    if semantic_class == "mental":
+        return random.choice(["la idea", "el problema", "eso"])
+    return random.choice(["eso", "el plan", "la verdad"])
+```
+
+This becomes much better if you later add verb semantic classes.
+
+---
+
+# 18. Recommended semantic classes for better template choice
+
+If you want this system to become really strong, tag lemmas into rough semantic classes.
+
+For verbs:
+
+1. motion
+2. communication
+3. cognition
+4. perception
+5. change
+6. possession
+7. social action
+8. physical manipulation
+9. emotional state
+10. administrative or formal action
+
+Examples:
+`vine` is motion
+`explican` is communication
+`recordó` is cognition
+`vea` is perception
+`aumentará` is change
+`comprará` is possession or transaction
+
+Then choose better templates by class.
+
+Example:
+
+```python
+SEMANTIC_TEMPLATE_OVERRIDES = {
+    "motion": [
+        "Ayer {target} aquí.",
+        "Mañana {target} a casa.",
+        "Pronto {target} de nuevo."
+    ],
+    "communication": [
+        "Siempre {target} la verdad.",
+        "Hoy {target} eso.",
+        "No {target} nada."
+    ],
+    "cognition": [
+        "Aún {target} eso.",
+        "Nunca {target} la respuesta.",
+        "Por fin {target} la verdad."
+    ],
+}
+```
+
+---
+
+# 19. Validation rules for template output
+
+After filling a template, validate:
+
+## Spanish checks
+
+1. target appears exactly
+2. word count <= 12
+3. no duplicate awkward words
+4. punctuation is simple
+5. no unresolved pronoun unless acceptable
+6. sentence begins naturally
+7. no article gender mismatch
+8. no number mismatch
+9. no bizarre semantic pairing
+10. no document title feel
+
+## English checks
+
+1. short
+2. faithful
+3. tense matches
+4. person matches
+5. not more specific than Spanish
+6. not literal in a bad way
+
+---
+
+# 20. Fallback ladder
+
+For each row, template generation should use this fallback ladder:
+
+```python
+FALLBACK_ORDER = [
+    "exact_special_bank",
+    "pos_and_mood_specific_bank",
+    "semantic_override_bank",
+    "general_pos_bank",
+    "minimal_safe_bank",
+    "manual_review"
+]
+```
+
+Example:
+`hayan`
+
+1. exact special bank for present perfect subjunctive
+2. general perfect subjunctive bank
+3. if fail, manual review
+
+Example:
+`desayunos`
+
+1. noun plural bank
+2. if odd, semantic override like `Sirven desayunos aquí.`
+3. if fail, manual review
+
+---
+
+# 21. Example outputs for your actual long items
+
+## `hayan`
+
+```python
+[
+    {"pattern": "Es posible que hayan salido.", "translation": "They may have left."},
+    {"pattern": "Espero que hayan llegado bien.", "translation": "I hope they arrived safely."},
+    {"pattern": "Dudo que hayan entendido.", "translation": "I doubt they understood."}
+]
+```
+
+## `llevando`
+
+```python
+[
+    {"pattern": "Está llevando el plan a cabo.", "translation": "He is carrying out the plan."},
+    {"pattern": "Sigue llevando la cuenta.", "translation": "He keeps track of it."},
+    {"pattern": "Va llevando la caja.", "translation": "He is carrying the box."}
+]
+```
+
+## `salgan`
+
+```python
+[
+    {"pattern": "Quiero que salgan ahora.", "translation": "I want them to leave now."},
+    {"pattern": "Espero que salgan hoy.", "translation": "I hope they leave today."},
+    {"pattern": "Es mejor que salgan.", "translation": "It is better if they leave."}
+]
+```
+
+## `papás`
+
+```python
+[
+    {"pattern": "Josh y yo seríamos papás.", "translation": "Josh and I would be dads."},
+    {"pattern": "Ellos ya son papás.", "translation": "They are already parents."}
+]
+```
+
+## `explican`
+
+```python
+[
+    {"pattern": "Aquí explican las reglas.", "translation": "They explain the rules here."},
+    {"pattern": "Siempre explican eso bien.", "translation": "They always explain that well."},
+    {"pattern": "En clase explican el tema.", "translation": "They explain the topic in class."}
+]
+```
+
+## `comprará`
+
+```python
+[
+    {"pattern": "Mi jefe comprará la casa.", "translation": "My boss will buy the house."},
+    {"pattern": "Ella comprará eso mañana.", "translation": "She will buy that tomorrow."},
+]
+```
+
+## `inusuales`
+
+```python
+[
+    {"pattern": "Sus hábitos son inusuales.", "translation": "Their habits are unusual."},
+    {"pattern": "Esos rasgos son inusuales.", "translation": "Those traits are unusual."},
+]
+```
+
+## `vine`
+
+```python
+[
+    {"pattern": "Vine aquí para ayudar.", "translation": "I came here to help."},
+    {"pattern": "Vine por ti.", "translation": "I came for you."},
+    {"pattern": "Vine ayer.", "translation": "I came yesterday."}
+]
+```
+
+---
+
+# 22. Minimal Python skeleton
+
+Here is a concrete skeleton shape you can build on.
+
+```python
+TEMPLATE_BANK = {
+    "verb": {
+        "indicative": {
+            "present": {
+                "1s": VERB_INDICATIVE_PRESENT_1S,
+                "2s": VERB_INDICATIVE_PRESENT_2S,
+                "3s": VERB_INDICATIVE_PRESENT_3S,
+                "1p": VERB_INDICATIVE_PRESENT_1P,
+                "3p": VERB_INDICATIVE_PRESENT_3P,
+            },
+            "preterite": VERB_PRETERITE,
+            "imperfect": VERB_IMPERFECT,
+            "future": VERB_FUTURE,
+            "conditional": VERB_CONDITIONAL,
+        },
+        "subjunctive": {
+            "present": VERB_SUBJ_PRESENT,
+            "imperfect": VERB_SUBJ_IMPERFECT,
+            "present_perfect": VERB_SUBJ_PERFECT,
+        },
+        "imperative": {
+            "tu": VERB_IMPERATIVE_TU,
+            "usted": VERB_IMPERATIVE_USTED,
+            "negative": VERB_NEG_IMPERATIVE,
+        },
+        "infinitive": VERB_INFINITIVE,
+        "gerund": VERB_GERUND,
+        "participle": VERB_PARTICIPLE,
+    },
+    "noun": {
+        "singular": NOUN_SINGULAR,
+        "plural": NOUN_PLURAL,
+        "abstract": NOUN_ABSTRACT,
+    },
+    "adjective": {
+        "ser": ADJ_SER,
+        "estar": ADJ_ESTAR,
+        "plural": ADJ_PLURAL,
+    },
+    "adverb": ADVERB_TEMPLATES,
+    "pronoun": {
+        "personal": PRONOUN_PERSONAL,
+        "object": PRONOUN_OBJECT,
+        "demonstrative": PRONOUN_DEMONSTRATIVE,
+        "relative_cuya": RELATIVE_CUYA,
+        "relative_quien": RELATIVE_QUIEN,
+    },
+    "article": {
+        "definite": ARTICLE_DEFINITE,
+        "indefinite": ARTICLE_INDEFINITE,
+    },
+    "determiner": DETERMINER_TEMPLATES,
+    "preposition": {
+        "locative": PREP_LOCATIVE,
+        "directional": PREP_DIRECTIONAL,
+        "abstract": PREP_ABSTRACT,
+    },
+    "conjunction": {
+        "y": CONJ_Y,
+        "o": CONJ_O,
+        "pero": CONJ_PERO,
+        "aunque": CONJ_AUNQUE,
+        "porque": CONJ_PORQUE,
+    },
+    "numeral": NUMERAL_TEMPLATES,
+    "special": {
+        "tan": SPECIAL_TAN,
+        "aun": SPECIAL_AUN,
+        "ello": SPECIAL_ELLO,
+        "sean": SPECIAL_SEAN,
+        "infinitives": SPECIAL_INFINITIVES,
+    }
+}
+```

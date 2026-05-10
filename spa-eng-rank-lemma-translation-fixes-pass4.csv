@@ -1,0 +1,63 @@
+rank,lemma,old_translation,new_translation,reason
+2,que,that; which;who;than,that; which; who; than,spacing
+9,es,he is;she is;it is (identity/essence/origin/time),he is; she is; it is (identity/essence/origin/time),spacing
+26,está,he is;she is; it is (state/location/result),he is; she is; it is (state/location/result),spacing
+146,sea,I be;you be;he be;she be;it be;you be(formal) (present subjunctive; identity/essence/origin/time),I be; you be; he be; she be; it be; you be (formal) (present subjunctive; identity/essence/origin/time),spacing
+977,rato,bit; a while,while; a little while,learner_friendly
+1770,llamadas,calls; called,calls; called (feminine plural),consistency
+2453,normas,rule; norm; standard; touchstone (plural),rules; norms; standards,remove_obscure_sense
+2577,pete,binky; pacifier,pacifier,remove_obscure_sense
+3847,norma,rule; norm; standard; touchstone,rule; norm; standard,remove_obscure_sense
+3931,diana,bullseye,target; bullseye,learner_friendly
+4073,rosas,hairless (plural),roses; pink (feminine plural),fix_wrong_sense
+4299,repetir,to repeat ),to repeat,fix_malformed
+4684,avanzar,to advance happen at an earlier time or date),to advance; to move forward,fix_malformed
+4727,cargar,to load ),to load; to carry,fix_malformed
+6173,pega,Eurasian magpie,drawback; catch,fix_wrong_sense
+7065,andas,a bier or small platform (plural),you walk; you're going,fix_wrong_sense
+7357,mueras,cooking salt (plural),you die; he dies; she dies; it dies (present subjunctive),fix_wrong_sense
+7769,cargando,loading ),loading; carrying,fix_malformed
+8123,denominado,named; called; entitled; denominated,named; called,learner_friendly
+9350,convocado,called,summoned; called together,learner_friendly
+10148,denominada,named; called; entitled; denominated (feminine singular),named; called (feminine singular),learner_friendly
+10692,repita,he repeats ); she repeats ); it repeats ),I repeat; you repeat; he repeats; she repeats; it repeats; you repeat (formal) (present subjunctive),fix_malformed
+11126,extremidades,end; extremity ) (plural),extremities; limbs,fix_malformed
+11161,repetirlo,to repeat ) it (masculine),to repeat it (masculine),fix_malformed
+11405,ratos,bit; a while (masculine plural),whiles; little whiles,learner_friendly
+11957,repetía,I repeated ); he repeated ); she repeated ); it repeated ) (ongoing habitual/background past),I repeated; he repeated; she repeated; it repeated (ongoing habitual/background past),fix_malformed
+12674,ratito,bit; a while,little while; moment,learner_friendly
+13258,convocó,he called; she called; it called (completed past),he summoned; she summoned; it summoned (completed past),learner_friendly
+13812,pegas,Eurasian magpie (plural),drawbacks; catches,fix_wrong_sense
+15183,cargó,he loaded ); she loaded ); it loaded ) (completed past),he loaded; she loaded; it loaded (completed past),fix_malformed
+16495,repetirse,to repeat ),to repeat oneself; to recur,fix_malformed
+17332,denominados,named; called; entitled; denominated (masculine plural),named; called (masculine plural),learner_friendly
+18581,pedófilo,pedophilic who is sexually attracted to children ),pedophile; pedophilic,fix_malformed
+19890,cargan,they load ),they load; they carry,fix_malformed
+20755,repetimos,we repeated ),we repeat; we repeated,fix_malformed
+20832,denominadas,named; called; entitled; denominated (feminine plural),named; called (feminine plural),learner_friendly
+21625,extremidad,end; extremity ),extremity; limb,fix_malformed
+21934,boxear,to box in a boxing match),to box,fix_malformed
+22049,repetirá,he will repeat ); she will repeat ); it will repeat ),he will repeat; she will repeat; it will repeat,fix_malformed
+22632,cargarlo,to load ) it (masculine),to load it (masculine); to carry it (masculine),fix_malformed
+23980,llámanos,be called,call us,fix_wrong_sense
+24513,beses,around 219.3 grams) (plural),you kiss; he kisses; she kisses; it kisses (present subjunctive),fix_malformed
+25113,papaya,see image),papaya,fix_malformed
+25252,mamas,mamma; breast (plural),moms; breasts,fix_wrong_sense
+25290,cargamos,we loaded ),we load; we carry; we loaded; we carried,fix_malformed
+26080,cargarse,to load ),to load up; to take on,fix_malformed
+26105,cargaron,they loaded ) (completed past),they loaded; they carried (completed past),fix_malformed
+27508,caucásico,Caucasian ),Caucasian,fix_malformed
+28457,apodado,called someone names,nicknamed,fix_wrong_sense
+29550,cargaré,I will load ),I will load; I will carry,fix_malformed
+29619,repetí,I repeated ) (completed past),I repeated (completed past),fix_malformed
+29971,repetían,they repeated ) (ongoing habitual/background past),they repeated (ongoing habitual/background past),fix_malformed
+30368,convocaron,they called (completed past),they summoned; they called together (completed past),learner_friendly
+30499,perceptiva,perceptive (having perception (feminine singular),perceptive (feminine singular),fix_malformed
+31063,cargarla,to load ) it (feminine),to load it (feminine); to carry it (feminine),fix_malformed
+31782,urraca,magpie (also called,magpie,fix_malformed
+31827,cargarte,to load ) you,to load you; to carry you,fix_malformed
+32341,repetirme,to repeat ) me,to repeat to me,fix_malformed
+32793,cargarme,to load ) me,to load me; to burden me,fix_malformed
+33972,cargaste,you loaded ) (completed past),you loaded; you carried (completed past),fix_malformed
+23170,cargaba,I loaded ); he loaded ); she loaded ); it loaded ) (ongoing habitual/background past),I loaded; he loaded; she loaded; it loaded (ongoing habitual/background past),fix_malformed
+23537,repetiré,I will repeat ),I will repeat,fix_malformed

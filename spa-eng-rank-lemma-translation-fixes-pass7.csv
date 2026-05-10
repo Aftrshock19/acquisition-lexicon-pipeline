@@ -1,0 +1,74 @@
+rank,lemma,old_translation,new_translation,reason
+163,momento,moment; instant,moment,pass7 learner-focused style and sense cleanup
+200,espera,wait,wait; expectation; hope,pass7 learner-focused style and sense cleanup
+235,cuenta,count; tally,account; bill; count,pass7 learner-focused style and sense cleanup
+363,jefe,head; chief; president; leader of a business,boss; chief,pass7 learner-focused style and sense cleanup
+425,clase,lecture,class,pass7 learner-focused style and sense cleanup
+428,juego,play,game; play,pass7 learner-focused style and sense cleanup
+471,cambio,shift; change,change,pass7 learner-focused style and sense cleanup
+481,habla,speech,speech; speaks,pass7 learner-focused style and sense cleanup
+486,pregunta,question,question; asks,pass7 learner-focused style and sense cleanup
+570,recuerdo,memory,memory; remembrance; I remember,pass7 learner-focused style and sense cleanup
+580,amo,master,I love,pass7 learner-focused style and sense cleanup
+595,oído,hearing,ear; hearing,pass7 learner-focused style and sense cleanup
+606,viaje,voyage,trip; journey,pass7 learner-focused style and sense cleanup
+608,cuarto,fourth,room; fourth,pass7 learner-focused style and sense cleanup
+616,prueba,proof; evidence,test; proof; tries,pass7 learner-focused style and sense cleanup
+618,campo,country; countryside,field; countryside,pass7 learner-focused style and sense cleanup
+634,vista,sight; vision; eyesight,view; sight,pass7 learner-focused style and sense cleanup
+650,director,director; manager,director; manager; principal,pass7 learner-focused style and sense cleanup
+669,obra,work,work; play,pass7 learner-focused style and sense cleanup
+670,asunto,issue; matter; business,matter; issue; business,pass7 learner-focused style and sense cleanup
+741,trato,treatment,deal; treatment,pass7 learner-focused style and sense cleanup
+790,duda,doubt,doubt; question,pass7 learner-focused style and sense cleanup
+912,radio,radio,radio; radio set,pass7 learner-focused style and sense cleanup
+926,corte,cut,court; cut,pass7 learner-focused style and sense cleanup
+939,hablas,speech (plural),you speak,pass7 learner-focused style and sense cleanup
+952,maestro,master,teacher; master,pass7 learner-focused style and sense cleanup
+1053,muestra,sample; sampling,sample; display; shows,pass7 learner-focused style and sense cleanup
+1152,visita,visit,visit; visitor,pass7 learner-focused style and sense cleanup
+1208,obras,works,works; plays,pass7 learner-focused style and sense cleanup
+1216,nota,note; memo,note; grade,pass7 learner-focused style and sense cleanup
+1224,actual,present; current,current; present,pass7 learner-focused style and sense cleanup
+1290,ganas,wish; want; desire (plural),desire; urge; eagerness,pass7 learner-focused style and sense cleanup
+1367,cuentas,count; tally (plural),accounts; bills; you count,pass7 learner-focused style and sense cleanup
+1512,llevas,you take,you carry; you wear; you take,pass7 learner-focused style and sense cleanup
+1548,papa,pope,potato; Pope,pass7 learner-focused style and sense cleanup
+1580,marca,brand,brand; mark,pass7 learner-focused style and sense cleanup
+1637,búsqueda,search,search; search for,pass7 learner-focused style and sense cleanup
+1648,clara,clear; light,clear; light-colored,pass7 learner-focused style and sense cleanup
+1701,damas,ladies,ladies; checkers,pass7 learner-focused style and sense cleanup
+1771,venta,sale,sale; selling,pass7 learner-focused style and sense cleanup
+1831,materia,matter,matter; subject,pass7 learner-focused style and sense cleanup
+1879,salón,living room; hall,living room; hall; lounge,pass7 learner-focused style and sense cleanup
+1886,recuerdos,memories,memories; souvenirs,pass7 learner-focused style and sense cleanup
+2151,compra,buying; purchase,purchase; shopping; buy,pass7 learner-focused style and sense cleanup
+2198,notas,notes,notes; grades; you notice,pass7 learner-focused style and sense cleanup
+2203,cura,cure; priest,priest; cure,pass7 learner-focused style and sense cleanup
+2277,dudas,doubt (plural),doubts; you doubt,pass7 learner-focused style and sense cleanup
+2319,plantas,plant (plural),plants,pass7 learner-focused style and sense cleanup
+2342,campos,country; countryside (masculine plural),fields; countryside,pass7 learner-focused style and sense cleanup
+2623,compras,shopping; purchases,purchases; shopping; you buy,pass7 learner-focused style and sense cleanup
+2898,esperas,wait (plural),you wait; you hope,pass7 learner-focused style and sense cleanup
+2921,marcas,brand (plural),brands; marks,pass7 learner-focused style and sense cleanup
+2976,viajes,voyage (plural),trips; journeys,pass7 learner-focused style and sense cleanup
+3004,muestras,sample; sampling (plural),samples; displays; you show,pass7 learner-focused style and sense cleanup
+3059,actualidad,present day; current times,present day; current affairs,pass7 learner-focused style and sense cleanup
+3092,jornada,day,workday; day; shift,pass7 learner-focused style and sense cleanup
+3202,ventas,sale (plural),sales,pass7 learner-focused style and sense cleanup
+3237,visitas,visit (plural),visits; you visit,pass7 learner-focused style and sense cleanup
+3278,tareas,task (plural),tasks; homework,pass7 learner-focused style and sense cleanup
+3307,maestra,master (feminine singular),teacher (feminine),pass7 learner-focused style and sense cleanup
+3329,medias,pantyhose (plural),stockings; socks; averages,pass7 learner-focused style and sense cleanup
+3555,mate,matte,kills; kill (subjunctive/formal imperative),pass7 learner-focused style and sense cleanup
+3589,vegas,plains; meadows,meadows; fertile plains,pass7 learner-focused style and sense cleanup
+3647,ayudas,aid; help (plural),help; aid; you help,pass7 learner-focused style and sense cleanup
+3706,citas,date (plural),dates; appointments; citations,pass7 learner-focused style and sense cleanup
+3822,maestros,master (masculine plural),teachers; masters,pass7 learner-focused style and sense cleanup
+3824,oficio,profession; occupation,trade; job; profession,pass7 learner-focused style and sense cleanup
+3852,cortes,cut (plural),courts; cuts,pass7 learner-focused style and sense cleanup
+3952,tasa,rate,rate; fee,pass7 learner-focused style and sense cleanup
+4000,chef,head cook,chef,pass7 learner-focused style and sense cleanup
+4046,rango,rank,rank; range,pass7 learner-focused style and sense cleanup
+4048,comando,commando,command unit; commando,pass7 learner-focused style and sense cleanup
+4116,anual,annual,yearly; annual,pass7 learner-focused style and sense cleanup
